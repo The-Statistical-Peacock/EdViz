@@ -8,7 +8,7 @@ library(plotly)
 source("setup.R")
 source("helper.R")
 
-# Set the default theme for ggplot2 plots
+# Set the default theme for plots
 ggplot2::theme_set(ggplot2::theme_minimal())
 
 
@@ -88,12 +88,14 @@ server <- function(input, output) {
   
   # Line Plot for All Patients
   output$line_All <- renderPlotly({
+    
     plot_line_All(selected_data())
     
   })
   
   # Line Plot for 75+ Patients
   output$line_75 <- renderPlotly({
+    
     plot_line_75(selected_data())
     
   })

@@ -1,7 +1,7 @@
 # setup.R
 library(purrr)
 
-# Get and Transform Data
+#----- Get Data & Create SideBar Layout -----#
 data <- read_csv("Data/data.csv") %>% 
   mutate(Date = ymd(Date))
 
@@ -20,8 +20,8 @@ sidebar_content <-
                 selected = "",
                 multiple  = FALSE),
     
-    "This Web-App uses publicly available data published by the HSE each Quarter.
-    The Monthly Data Managment Report is available at", 
+    "This Web-App uses publicly available data published by the HSE.
+    The MDR is available at:", 
     tags$a("Link to HSE Performance Reports", href = "https://www.hse.ie/eng/services/publications/performancereports/") ,
-    "HSE MDR Data is a moment in time snapshot of a hospitals performance. Data Validation is always being performed by HSE hospitals, and as such, this data may change over time"
+    "Data Validation is always being performed by HSE hospitals, and as such, this data may change over time"
   )

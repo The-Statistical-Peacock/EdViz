@@ -1,5 +1,4 @@
 # helpers.R
-# helpers.R
 
 filter_data <- function(hospital, kpi) {
   
@@ -39,7 +38,7 @@ plot_line_All <- function(data) {
   
   data <- data %>% 
     filter(Metric == 'All') %>%
-    arrange(Date)  # Arrange the data by Date
+    arrange(Date)  
   
   plot_ly(data = data,
           x = ~Date, y = ~Value, 
@@ -49,8 +48,8 @@ plot_line_All <- function(data) {
     layout(title = "",
            xaxis = list(title = "", type = "date", tickangle = 45, tickfont = list(size = 12, color = 'white'), tickformat = '%b-%y'),
            yaxis = list(title = "", tickfont = list(size = 12, color = 'white'), tickformat = ".1%"),
-           paper_bgcolor = '#333333',  # Dark grey background
-           plot_bgcolor = '#333333',   # Dark grey background
+           paper_bgcolor = '#333333',  
+           plot_bgcolor = '#333333',   
            font = list(size = 14),
            margin = list(b = 50)) %>%
     config(displayModeBar = FALSE)
@@ -64,7 +63,7 @@ plot_line_75 <- function(data){
   
   data <- data %>% 
     filter(Metric == '75') %>%
-    arrange(Date)  # Arrange the data by Date
+    arrange(Date)  
   
   plot_ly(data = data,
           x = ~Date, y = ~Value, 
@@ -74,8 +73,8 @@ plot_line_75 <- function(data){
     layout(title = "",
            xaxis = list(title = "", type = "date", tickangle = 45, tickfont = list(size = 12, color = 'white'), tickformat = '%b-%y'),
            yaxis = list(title = "", tickfont = list(size = 12, color = 'white'), tickformat = ".1%"),
-           paper_bgcolor = '#333333',  # Dark grey background
-           plot_bgcolor = '#333333',   # Dark grey background
+           paper_bgcolor = '#333333',  
+           plot_bgcolor = '#333333',   
            font = list(size = 14),
            margin = list(b = 50)) %>%
     config(displayModeBar = FALSE)
@@ -89,7 +88,7 @@ barplot_dna <- function(data){
   data <- data %>% 
     filter(Metric == 'none', 
            KPI == '# DNA') %>%
-    arrange(Date)  # Arrange the data by Date
+    arrange(Date)  
   
   plot_ly(data = data,
           x = ~Date, y = ~Value,
@@ -98,9 +97,9 @@ barplot_dna <- function(data){
     layout(title = "",
            xaxis = list(title = "", type = "date", tickangle = 45, tickfont = list(size = 12), tickformat = "%b-%y"),
            yaxis = list(title = "", tickfont = list(size = 12)),
-           paper_bgcolor = '#333333',  # Dark grey background
-           plot_bgcolor = '#333333',   # Dark grey background
-           font = list(size = 14, color = "white"), # Set font color to white
+           paper_bgcolor = '#333333',  
+           plot_bgcolor = '#333333',   
+           font = list(size = 14, color = "white"), 
            margin = list(b = 50)) %>%
     config(displayModeBar = FALSE)
   
@@ -113,7 +112,7 @@ barplot_24_75 <- function(data){
   data <- data %>% 
     filter(Metric == '75', 
            KPI == '# > 24 Hours') %>%
-    arrange(Date)  # Arrange the data by Date
+    arrange(Date)  
   
   plot_ly(data = data,
           x = ~Date, y = ~Value, 
@@ -122,9 +121,9 @@ barplot_24_75 <- function(data){
     layout(title = "",
            xaxis = list(title = "", type = "date", tickangle = 45, tickfont = list(size = 12), tickformat = '%b-%y'),
            yaxis = list(title = "", tickfont = list(size = 12)),
-           paper_bgcolor = '#333333',  # Dark grey background
-           plot_bgcolor = '#333333',   # Dark grey background
-           font = list(size = 14, color = "white"), # Set font color to white
+           paper_bgcolor = '#333333',  
+           plot_bgcolor = '#333333',   
+           font = list(size = 14, color = "white"), 
            margin = list(b = 50)) %>%
     config(displayModeBar = FALSE)
 }
