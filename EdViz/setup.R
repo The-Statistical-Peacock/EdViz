@@ -20,8 +20,7 @@ sidebar_content <-
                 selected = "",
                 multiple  = FALSE),
     
-    "This Web-App uses publicly available data published by the HSE.
-    The MDR is available at:", 
+    "This Web-App uses publicly available data published by the HSE, available at:", 
     tags$a("Link to HSE Performance Reports", href = "https://www.hse.ie/eng/services/publications/performancereports/") ,
     "Data Validation is always being performed by HSE hospitals, and as such, this data may change over time"
   )
