@@ -12,11 +12,7 @@ source("helper.R")
 ggplot2::theme_set(ggplot2::theme_minimal())
 
 
-# Apply CSS to ggplots
-#thematic_shiny()
-
-
-# Define UI for application that draws a histogram
+#----- User Interface -----#
 ui <- page_sidebar(
   
   # Set CSS theme
@@ -27,7 +23,7 @@ ui <- page_sidebar(
   title = div(style = "font-size: 28px;", 'EdViz: Health Service Executive Emergency Department Visualization'),
   sidebar = sidebar(
     sidebar_content,
-    HTML('<img src = "logo.png", width = "90%", height = "auto">')
+    HTML('<img src = "logo.png", width = "auto", height = "auto">')
     
   ),
   
@@ -64,16 +60,14 @@ ui <- page_sidebar(
          plotlyOutput("barplot_24_75")),
     
     
-    
     col_widths = c(6, 6, 4, 4, 4, 6, 6),
     row_heights = c(3, 1, 3)
   )
   
   
-  
-  
 )
-# Define server logic
+
+#----- Server -----#
 server <- function(input, output) {
   
   
@@ -90,7 +84,7 @@ server <- function(input, output) {
                   selected_kpi())
     })
   
-  # Plots and Cards Output  
+#----- PLOTs & Cards -----#
   
   # Line Plot for All Patients
   output$line_All <- renderPlotly({
@@ -103,8 +97,6 @@ server <- function(input, output) {
     plot_line_75(selected_data())
     
   })
-  
-  
   
   
   # DNA Column Chart
@@ -154,7 +146,7 @@ server <- function(input, output) {
   })
   
   
-  # Average of Over 24 hours - 75+
+  # Average of Over 24 hours - 75+ Card
   output$avg_24_75 <- renderText({
     
     combo_data <-
